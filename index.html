@@ -316,7 +316,8 @@
 
         ul {
             margin: 20px 0;
-            padding-left: 20px;
+            padding-left: 0;
+            list-style: none;
         }
 
         ul li {
@@ -325,7 +326,7 @@
             margin-bottom: 15px;
             color: #555;
             position: relative;
-            padding-left: 15px;
+            padding-left: 30px;
             animation: fadeInUp 0.6s ease-out;
             animation-fill-mode: both;
         }
@@ -351,12 +352,14 @@
         }
 
         ul li::before {
-            content: "•";
-            color: #b9ba42;
-            font-weight: bold;
-            font-size: 1.5em;
+            content: "";
             position: absolute;
-            left: -5px;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #b9ba42;
+            border-radius: 50%;
         }
 
         .nav-dots {
@@ -454,15 +457,15 @@
         }
 
         .section-number {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, #2d5347 0%, #b9ba42 100%);
             color: white;
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.5em;
+            font-size: 1.3em;
             font-weight: bold;
             margin-right: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -523,8 +526,7 @@
             .section-number {
                 width: 40px;
                 height: 40px;
-                line-height: 40px;
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
         }
 
@@ -616,11 +618,6 @@
                     <li><strong>Huidige KPI:</strong> Omzet per uur (OPU) van €160</li>
                 </ul>
             </div>
-
-            <div class="highlight-box">
-                <p><strong>Contactpersoon:</strong> Management team Het Houtse Meer</p>
-                <p><strong>Focus:</strong> Behoud van OPU tijdens groei en schaalvergroting</p>
-            </div>
         </div>
     </section>
 
@@ -656,10 +653,6 @@
     <section id="slide3">
         <div class="slide">
             <h2><span class="section-number">3</span>Probleemanalyse</h2>
-            
-            <p style="font-style: italic; color: #666; margin-bottom: 30px;">
-                Kort de elementen/uitkomsten in bullet points wat je onderzocht hebt of gaat onderzoeken
-            </p>
 
             <div class="content-box">
                 <h3>Onderzoekselementen</h3>
@@ -709,10 +702,6 @@
     <section id="slide5">
         <div class="slide">
             <h2><span class="section-number">5</span>Gekozen Competentie Domein(en)</h2>
-            
-            <p style="font-style: italic; color: #666; margin-bottom: 30px;">
-                (Marketing&Design etc) + welke theorieën/modellen je gaat gebruiken
-            </p>
 
             <div class="content-box">
                 <h3>Primaire Competentiedomeinen</h3>
@@ -744,10 +733,6 @@
     <section id="slide6">
         <div class="slide">
             <h2><span class="section-number">6</span>Beoogd Eindproduct</h2>
-            
-            <p style="font-style: italic; color: #666; margin-bottom: 30px;">
-                (nieuw concept? marketing-communicatieplan? productieplan/draaiboek? algemeen adviesplan? Een video?)
-            </p>
 
             <div class="highlight-box">
                 <h3 style="color: #2d5347; font-size: 1.8em;">Toekomstbestendig Proces- en Systeemontwerp</h3>
@@ -777,10 +762,6 @@
     <section id="slide7">
         <div class="slide">
             <h2><span class="section-number">7</span>Waar Loop Je Tegenaan</h2>
-            
-            <p style="font-style: italic; color: #666; margin-bottom: 30px;">
-                in je plan van aanpak/afstudeerplan en/of meer algemeen de 1e weken van je afstudeeropdracht?
-            </p>
 
             <div class="content-box">
                 <h3>In het Plan van Aanpak / Afstudeerplan</h3>
