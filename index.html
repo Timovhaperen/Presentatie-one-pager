@@ -608,19 +608,19 @@
             .slide {
                 padding: 30px 20px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             h2 {
                 font-size: 1.6em;
             }
-            
+
             .kpi {
                 font-size: 2.5em;
             }
-            
+
             .nav-dots {
                 display: none;
             }
@@ -683,12 +683,18 @@
         <div class="slide">
             <div class="decorative-circle top-right"></div>
             <div class="decorative-circle bottom-left"></div>
-            
+
+            <!-- AANGEPAST: echte afbeelding i.p.v. 1x1 base64 -->
             <div class="logo-container">
-                <img src="./LogoHHM.png"alt="Het Houtse Meer Logo" id="logoImg">
+                <img src="./LogoHHM.png" alt="Het Houtse Meer Logo" id="logoImg">
             </div>
+
             <h1>Borgen van OPU tijdens Groei</h1>
-            <div class="kpi">Optimalisatie van processen en systemen</div>
+            <p class="subtitle">Toekomstbestendig proces- en systeemontwerp</p>
+            <div class="kpi">€160 OPU</div>
+            <p style="text-align: center; font-size: 1.2em; margin-top: 40px;">
+                Afstudeeropdracht: Optimalisatie van processen en systemen voor duurzame groei
+            </p>
             <div class="scroll-indicator"></div>
         </div>
     </section>
@@ -697,7 +703,7 @@
     <section id="slide2">
         <div class="slide">
             <h2>Probleemomschrijving</h2>
-            
+
             <div class="highlight-box">
                 <h3>Huidige Situatie</h3>
                 <p>Het Houtse Meer hanteert een <span class="emphasis">omzet per uur (OPU) van €160</span> als cruciale KPI. Met de opening van een nieuwe bovenverdieping staat groei in volume en complexiteit voor de deur.</p>
@@ -729,7 +735,7 @@
     <section id="slide3">
         <div class="slide">
             <h2>Centrale Vraagstelling</h2>
-            
+
             <div class="highlight-box" style="border-left-width: 6px; padding: 40px;">
                 <p style="font-size: 1.4em; color: #2d5347; font-weight: 500; line-height: 1.9;">
                     Hoe kan Het Houtse Meer de huidige omzet per uur (OPU) van €160 <span class="emphasis">borgen tijdens toekomstige groei</span> door processen en systemen beter op elkaar af te stemmen en onnodige administratieve tijdsbesteding te beperken?
@@ -828,7 +834,7 @@
     <section id="slide6">
         <div class="slide">
             <h2>Onderzoeksaanpak</h2>
-            
+
             <p style="margin-bottom: 30px;">Het onderzoek volgt een systematische aanpak in zeven stappen:</p>
 
             <div class="step-list">
@@ -861,14 +867,14 @@
     <section id="slide7">
         <div class="slide">
             <h2>Eindproduct</h2>
-            
+
             <div class="highlight-box">
                 <h3 style="color: #2d5347; font-size: 1.8em;">Toekomstbestendig Proces- en Systeemontwerp</h3>
                 <p style="font-size: 1.2em;">Gericht op het borgen van de OPU van €160</p>
             </div>
 
             <h3 style="margin-top: 40px;">Inhoud van het Eindproduct</h3>
-            
+
             <div class="deliverable-list">
                 <ul style="list-style: none;">
                     <li>Overzicht huidige processen en systemen</li>
@@ -888,15 +894,26 @@
     </section>
 
     <script>
-        // Load logo
+        // Logo: HTML src is leidend (./LogoHHM.png). Dit is alleen een fallback als dat pad niet klopt.
         const logoImg = document.getElementById('logoImg');
-        logoImg.src = '/mnt/user-data/uploads/LogoHHM.png';
+        logoImg.addEventListener('error', () => {
+            const fallbacks = [
+                './assets/LogoHHM.png',
+                './images/LogoHHM.png',
+                '/LogoHHM.png'
+            ];
+
+            const current = logoImg.getAttribute('src');
+            const next = fallbacks.find(p => p !== current);
+
+            if (next) logoImg.src = next;
+        });
 
         // Smooth scroll functionaliteit
         function scrollToSection(index) {
             const sections = document.querySelectorAll('section');
             sections[index].scrollIntoView({ behavior: 'smooth' });
-            
+
             // Update active dot
             document.querySelectorAll('.nav-dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
