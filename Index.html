@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Het Houtse Meer – OPU Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* ------------------------------
+           BASIS
+        ------------------------------ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", system-ui, sans-serif;
+            background: #0d0d0d;
+            color: #f2f2f2;
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ------------------------------
+           HEADER
+        ------------------------------ */
+        header {
+            background: #000;
+            padding: 2.5rem 0 1.5rem;
+            border-bottom: 2px solid #f4c542;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f4c542;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            color: #e0e0e0;
+            opacity: 0.85;
+            margin-top: 0.3rem;
+        }
+
+        /* ------------------------------
+           NAVIGATIE
+        ------------------------------ */
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f4c542;
+            padding: 0.45rem 0.9rem;
+            border: 1px solid #f4c542;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            transition: 0.2s ease;
+        }
+
+        nav a:hover {
+            background: #f4c542;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* ------------------------------
+           KAARTEN / SECTIES
+        ------------------------------ */
+        .card {
+            background: #111;
+            border: 1px solid #1f1f1f;
+            border-left: 4px solid #f4c542;
+            padding: 1.7rem;
+            margin-bottom: 1.7rem;
+            border-radius: 10px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        }
+
+        .card h2 {
+            color: #f4c542;
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .card h3 {
+            color: #f4c542;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p,
+        .card li {
+            color: #e6e6e6;
+        }
+
+        .card ul,
+        .card ol {
+            margin-left: 1.2rem;
+        }
+
+        /* ------------------------------
+           ACCORDION
+        ------------------------------ */
+        .accordion-header {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 0.7rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 0.4rem;
+            color: #f4c542;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion-header::after {
+            content: "+";
+            font-size: 1.2rem;
+        }
+
+        .accordion-header.active::after {
+            content: "–";
+        }
+
+        .accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            background: #0f0f0f;
+            border: 1px solid #333;
+            border-radius: 0 0 8px 8px;
+            transition: max-height 0.25s ease;
+            padding: 0 1rem;
+        }
+
+        .accordion-body ul {
+            margin: 0.7rem 0 1rem 1.2rem;
+        }
+
+        /* ------------------------------
+           FORMULIER
+        ------------------------------ */
+        label {
+            color: #f4c542;
+            font-weight: 600;
+        }
+
+        textarea {
+            background: #1a1a1a;
+            color: #fff;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 0.7rem;
+        }
+
+        button[type="submit"] {
+            background: #f4c542;
+            color: #000;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #ffdb5c;
+            transform: translateY(-2px);
+        }
+
+        .status-message {
+            color: #8cff8c;
+            font-size: 0.85rem;
+        }
+
+        /* ------------------------------
+           FOOTER
+        ------------------------------ */
+        footer {
+            background: #000;
+            color: #f4c542;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 2px solid #f4c542;
+        }
+
+        /* ------------------------------
+           RESPONSIVE
+        ------------------------------ */
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                font-size: 0.8rem;
+                padding: 0.35rem 0.7rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1>Het Houtse Meer – OPU €160 borgen</h1>
+        <p>Toekomstbestendig proces- en systeemontwerp tijdens groei</p>
+
+        <nav>
+            <ul>
+                <li><a href="#opdrachtgever">Opdrachtgever</a></li>
+                <li><a href="#probleem">Probleem</a></li>
+                <li><a href="#analyse">Analyse</a></li>
+                <li><a href="#hoofdvraag">Hoofdvraag</a></li>
+                <li><a href="#competentie">Competenties</a></li>
+                <li><a href="#eindproduct">Eindproduct</a></li>
+                <li><a href="#uitdagingen">Uitdagingen</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- 1. Opdrachtgever -->
+    <section id="opdrachtgever" class="card">
+        <h2>1. Opdrachtgever</h2>
+        <p><strong>Organisatie:</strong> Het Houtse Meer</p>
+        <p>Het Houtse Meer is een horecalocatie die wil groeien in volume en complexiteit, maar werkt met losse systemen die niet goed op elkaar aansluiten.</p>
+    </section>
+
+    <!-- 2. Probleem -->
+    <section id="probleem" class="card">
+        <h2>2. Probleem / uitdaging</h2>
+        <p>De OPU van €160 staat onder druk door inefficiënte processen, dubbele invoer en tijdverlies door slecht afgestemde systemen.</p>
+    </section>
+
+    <!-- 3. Analyse -->
+    <section id="analyse" class="card">
+        <h2>3. Probleemanalyse</h2>
+        <ul>
+            <li>Inventarisatie processen en systemen</li>
+            <li>Analyse administratieve belasting</li>
+            <li>Onderzoek medewerkerservaringen</li>
+            <li>Benchmark vergelijkbare organisaties</li>
+        </ul>
+
+        <div class="accordion">
+            <button class="accordion-header">Deelvragen – interne situatie</button>
+            <div class="accordion-body">
+                <ul>
+                    <li>Welke processen beïnvloeden tijdsbesteding?</li>
+                    <li>Waar ontstaat dubbel werk?</li>
+                </ul>
+            </div>
+
+            <button class="accordion-header">Deelvragen – medewerkers</button>
+            <div class="accordion-body">
+                <ul>
+                    <li>Hoe ervaren medewerkers de systemen?</li>
+                    <li>Waar ontstaan fouten of vertraging?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Hoofdvraag -->
+    <section id="hoofdvraag" class="card">
+        <h2>4. Hoofdvraag</h2>
+        <p><strong>Hoe kan Het Houtse Meer de OPU van €160 behouden tijdens groei door processen en systemen beter af te stemmen?</strong></p>
+    </section>
+
+    <!-- 5. Competenties -->
+    <section id="competentie" class="card">
+        <h2>5. Competentiedomeinen & theorie</h2>
+        <ul>
+            <li>Procesmanagement</li>
+            <li>Lean‑principes</li>
+            <li>Systeemintegratie</li>
+        </ul>
+    </section>
+
+    <!-- 6. Eindproduct -->
+    <section id="eindproduct" class="card">
+        <h2>6. Beoogde eindproduct</h2>
+        <p>Een toekomstbestendig proces- en systeemontwerp dat de OPU borgt.</p>
+        <ol>
+            <li>Analyse huidige processen</li>
+            <li>Risicoanalyse OPU</li>
+            <li>Benchmark</li>
+            <li>Nieuw proces- en systeemmodel</li>
+        </ol>
+    </section>
+
+    <!-- 7. Uitdagingen -->
+    <section id="uitdagingen" class="card">
+        <h2>7. Waar loop ik tegenaan?</h2>
+        <ul>
+            <li>Scope bepalen</li>
+            <li>Data verzamelen</li>
+            <li>Stakeholderafstemming</li>
+        </ul>
+
+        <form id="note-form">
+            <label for="note">Eigen notitie:</label>
+            <textarea id="note" placeholder="Wat vind je nu het lastigst?"></textarea>
+            <button type="submit">Bewaar notitie</button>
+            <p id="note-status" class="status-message"></p>
+        </form>
+    </section>
+
+</main>
+
+<footer>
+    <p>Project Lab – Het Houtse Meer | OPU €160</p>
+</footer>
+
+<script>
+    /* Smooth scroll */
+    document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            window.scrollTo({
+                top: target.offsetTop - 90,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    /* Accordion */
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            header.classList.toggle('active');
+            const body = header.nextElementSibling;
+
+            if (body.style.maxHeight) {
+                body.style.maxHeight = null;
+            } else {
+                body.style.maxHeight = body.scrollHeight + "px";
+            }
+        });
+    });
+
+    /* Notitie opslaan */
+    const noteForm = document.getElementById('note-form');
+    const noteTextarea = document.getElementById('note');
+    const noteStatus = document.getElementById('note-status');
+    const NOTE_KEY = 'houtsemeer_note';
+
+    function loadNote() {
+        const saved = localStorage.getItem(NOTE_KEY);
+        if (saved) {
+            noteTextarea.value = saved;
+            noteStatus.textContent = "Eerder opgeslagen notitie geladen.";
+        }
+    }
+
+    loadNote();
+
+    noteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const value = noteTextarea.value.trim();
+        localStorage.setItem(NOTE_KEY, value);
+        noteStatus.textContent = "Notitie opgeslagen.";
+        setTimeout(() => noteStatus.textContent = "", 3000);
+    });
+</script>
+
+</body>
+</html>
